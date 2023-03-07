@@ -1,48 +1,48 @@
 ﻿using System.Security.AccessControl;
 
-int[] vetorA = new int[5];
-int[] vetorB = new int[5];
-int[] vetorC = new int[10];
+int[] vetorA = new int[3];
+int[] vetorB = new int[3];
+int[] vetorC = new int[vetorA.Length + vetorB.Length];
 
-int Imenu()
+int IMenu()
 {
     Console.WriteLine("Digite um valor: ");
-    return retornaErro(Console.ReadLine());
+    return RetornaErro(Console.ReadLine());
 }
 
-int[] preencherVetor(int[] vetorAux,string texto)
+int[] PreencherVetor(int[] vetorAux, string texto)
 {
     for (int i = 0; i < vetorAux.Length; i++)
     {
-        Console.WriteLine($"Posição {i+1} do {texto}");
-        vetorAux[i] = Imenu();
+        Console.WriteLine($"Posição {i + 1} do {texto}");
+        vetorAux[i] = IMenu();
     }
     return vetorAux;
 }
 
-int retornaErro(string valor)
+int RetornaErro(string valor)
 {
 
     int num;
     if (!int.TryParse(valor, out num))
     {
         Console.WriteLine("Informe um número válido");
-        return Imenu();
+        return IMenu();
     }
     return num;
 }
 
-int[] copiarVetor(int[] vetorA, int[] vetorB)
+int[] CopiarVetor(int[] vetorA, int[] vetorB)
 {
-    int[] vetorAux = new int[10];
+    int[] vetorAux = new int[vetorA.Length + vetorB.Length];
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < vetorA.Length; i++)
     {
         vetorAux[i] = vetorA[i];
     }
-    for (int i = 5; i < 10; i++)
+    for (int i = 0; i < vetorB.Length; i++)
     {
-        vetorAux[i] = vetorB[i - 5];
+        vetorAux[i + vetorA.Length] = vetorB[i];
     }
 
     return vetorAux;
@@ -50,7 +50,7 @@ int[] copiarVetor(int[] vetorA, int[] vetorB)
 }
 
 
-void print(int[] vetor)
+void Print(int[] vetor)
 {
     for (int i = 0; i < vetor.Length; i++)
     {
@@ -59,17 +59,17 @@ void print(int[] vetor)
     Console.WriteLine("");
 }
 
-preencherVetor(vetorA, "Vetor A");
-preencherVetor(vetorB, "Vetor B");
+PreencherVetor(vetorA, "Vetor A");
+PreencherVetor(vetorB, "Vetor B");
 
-vetorC = copiarVetor(vetorA, vetorB);
+vetorC = CopiarVetor(vetorA, vetorB);
 
 Console.WriteLine("Vetor A: ");
-print(vetorA);
+Print(vetorA);
 Console.WriteLine();
 Console.WriteLine("Vetor B: ");
-print(vetorB);
+Print(vetorB);
 Console.WriteLine();
 Console.WriteLine("Vetor C: ");
-print(vetorC);
+Print(vetorC);
 Console.WriteLine();
