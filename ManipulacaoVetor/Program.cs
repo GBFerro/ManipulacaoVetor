@@ -59,6 +59,23 @@ void Print(int[] vetor)
     Console.WriteLine("");
 }
 
+void OrdenaVetor(int[] vetor)
+{
+    for (int i = 0; i < vetor.Length - 1; i++)
+    {
+        for (int j = i + 1; j < vetor.Length; j++)
+        {
+            if (vetor[j] < vetor[i])
+            {
+                int aux = vetor[j];
+                vetor[j] = vetor[i];
+                vetor[i] = aux;
+            }
+
+        }
+    }
+}
+
 PreencherVetor(vetorA, "Vetor A");
 PreencherVetor(vetorB, "Vetor B");
 
@@ -71,5 +88,10 @@ Console.WriteLine("Vetor B: ");
 Print(vetorB);
 Console.WriteLine();
 Console.WriteLine("Vetor C: ");
+Print(vetorC);
+Console.WriteLine();
+
+OrdenaVetor(vetorC);
+Console.WriteLine("Vetor C ordenado: ");
 Print(vetorC);
 Console.WriteLine();
