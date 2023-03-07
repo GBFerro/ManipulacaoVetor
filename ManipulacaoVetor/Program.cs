@@ -10,13 +10,11 @@ int Imenu()
     return retornaErro(Console.ReadLine());
 }
 
-int[] preencherVetor()
+int[] preencherVetor(int[] vetorAux,string texto)
 {
-    int[] vetorAux = new int[5];
-
     for (int i = 0; i < vetorAux.Length; i++)
     {
-        Console.WriteLine($"Posição {i+1} do vetor");
+        Console.WriteLine($"Posição {i+1} do {texto}");
         vetorAux[i] = Imenu();
     }
     return vetorAux;
@@ -61,8 +59,8 @@ void print(int[] vetor)
     Console.WriteLine("");
 }
 
-vetorA = preencherVetor();
-vetorB = preencherVetor();
+preencherVetor(vetorA, "Vetor A");
+preencherVetor(vetorB, "Vetor B");
 
 vetorC = copiarVetor(vetorA, vetorB);
 
