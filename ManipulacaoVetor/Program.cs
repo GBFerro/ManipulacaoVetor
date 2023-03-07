@@ -16,7 +16,8 @@ int[] preencherVetor()
 
     for (int i = 0; i < vetorAux.Length; i++)
     {
-            vetorAux[i] = Imenu();
+        Console.WriteLine($"Posição {i+1} do vetor");
+        vetorAux[i] = Imenu();
     }
     return vetorAux;
 }
@@ -40,10 +41,10 @@ int[] copiarVetor(int[] vetorA, int[] vetorB)
     for (int i = 0; i < 5; i++)
     {
         vetorAux[i] = vetorA[i];
-    }    
+    }
     for (int i = 5; i < 10; i++)
     {
-        vetorAux[i] = vetorB[i-5];
+        vetorAux[i] = vetorB[i - 5];
     }
 
     return vetorAux;
@@ -61,13 +62,16 @@ void print(int[] vetor)
 }
 
 vetorA = preencherVetor();
-vetorB  = preencherVetor();
+vetorB = preencherVetor();
 
 vetorC = copiarVetor(vetorA, vetorB);
 
 Console.WriteLine("Vetor A: ");
 print(vetorA);
+Console.WriteLine();
 Console.WriteLine("Vetor B: ");
 print(vetorB);
+Console.WriteLine();
 Console.WriteLine("Vetor C: ");
 print(vetorC);
+Console.WriteLine();
